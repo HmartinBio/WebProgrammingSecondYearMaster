@@ -1,0 +1,208 @@
+{% extends 'base/baseForQuizz.html' %}
+{% load static %}
+
+{% block extrahead %}
+
+    <script src="{% static "JS/jquery/jquery-3.5.1.min.js" %}"></script>
+	<script src="{% static "JS/modifingLogin.js" %}"></script>
+    <script type="text/javascript" src="{% static "JS/QuizzAnswers.js" %}"></script>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="home-title">You won {{ gained_score }} points</div>
+
+    <table name="tableAnswers">
+
+        {% for i, j in dictionnaryURL.items%}
+        
+            {% if i == 0%}
+
+            <tr>
+            <td>
+
+                <div class = "firstQuestion" name="{{ list_answer_to_answer.0 }}">
+
+                    <img src="{{ j.0 }}" id="img_0_{{ i }}">
+                    <img src="{{ j.1 }}" id="img_1_{{ i }}">
+
+                    <ul id="id_firstQuestion">
+
+                    {% for k in list_choices %}
+
+                        {% if k.0 == list_answers.0 %}
+                            <li><label for="id_firstQuestion_{{ k.1 }}"><input type="radio" name="firstQuestion" value="{{ k.0 }}" checked>{{ k.0 }}</label></li>
+                    
+                        {% else %}
+                            <li><label for="id_firstQuestion_{{ k.1 }}"><input type="radio" name="firstQuestion" value="{{ k.0 }}">{{ k.0 }}</label></li>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+                    </ul>
+
+                    {% if list_answer_to_answer.0 == "TrueQuestion"%}
+                        <p id="question1Answer">Good Answer!</p>
+
+                    {% else %}
+                        <p id="question1Answer">Bad Answer !</p>
+
+
+                    {% endif %}
+
+
+                    <p id="descriptionQuestion1">{{ list_description_answer.0 }}</p>
+
+
+                </div>
+
+            </td>
+            </tr>
+
+            {% endif %}
+
+            {% if i == 1%}
+            <tr>
+            <td>
+
+                <div class = "secondQuestion" name="{{ list_answer_to_answer.1 }}">
+
+                    <img src="{{ j.0 }}" id="img_0_{{ i }}">
+                    <img src="{{ j.1 }}" id="img_1_{{ i }}">
+
+                    <ul id="id_secondQuestion">
+
+                    {% for k in list_choices %}
+
+                        {% if k.0 == list_answers.1 %}
+                            <li><label for="id_secondQuestion_{{ k.1 }}"><input type="radio" name="secondQuestion" value="{{ k.0 }}" checked>{{ k.0 }}</label></li>
+                    
+                        {% else %}
+                            <li><label for="id_firstQuestion_{{ k.1 }}"><input type="radio" name="secondQuestion" value="{{ k.0 }}">{{ k.0 }}</label></li>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+                    </ul>
+
+                    {% if list_answer_to_answer.1 == "TrueQuestion"%}
+                        <p id="question2Answer">Good Answer!</p>
+
+                    {% else %}
+                        <p id="question2Answer">Bad Answer !</p>
+
+                    {% endif %}
+
+                    <p id="descriptionQuestion2">{{ list_description_answer.1 }}</p>
+
+               
+
+                </div>
+
+            </td>
+            </tr>
+
+            {% endif %}
+
+            {% if i == 2 %}
+            <tr>
+            <td>
+
+                <div class = "thirdQuestion" name="{{ list_answer_to_answer.2 }}">
+
+                    <img src="{{ j.0 }}" id="img_0_{{ i }}">
+                    <img src="{{ j.1 }}" id="img_1_{{ i }}">
+
+                    <ul id="id_thirdQuestion">
+
+                    {% for k in list_choices %}
+
+                        {% if k.0 == list_answers.2 %}
+                            <li><label for="id_thirdQuestion_{{ k.1 }}"><input type="radio" name="thirdQuestion" value="{{ k.0 }}" checked>{{ k.0 }}</label></li>
+                    
+                        {% else %}
+                            <li><label for="id_thirdQuestion_{{ k.1 }}"><input type="radio" name="thirdQuestion" value="{{ k.0 }}">{{ k.0 }}</label></li>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+                    </ul>
+
+                    {% if list_answer_to_answer.2 == "TrueQuestion"%}
+                        <p id="question3Answer">Good Answer!</p>
+
+                    {% else %}
+                        <p id="question3Answer">Bad Answer !</p>
+
+                    {% endif %}
+
+                    <p id="descriptionQuestion3">{{ list_description_answer.2 }}</p>
+
+               
+
+
+                </div>
+
+            </td>
+            </tr>
+
+            {% endif %}
+
+
+            {% if i == 3 %}
+             <tr>
+             <td>
+                <div class = "fourthQuestion" name="{{ list_answer_to_answer.3 }}">
+
+                    <img src="{{ j.0 }}" id="img_0_{{ i }}">
+                    <img src="{{ j.1 }}" id="img_1_{{ i }}">
+
+                    <ul id="id_fourthQuestion">
+
+                    {% for k in list_choices %}
+
+                        {% if k.0 == list_answers.3 %}
+                    
+                            <li><label for="id_fourthQuestion_{{ k.1 }}"><input type="radio" name="fourthQuestion" value="{{ k.0 }}" checked>{{ k.0 }}</label></li>
+                    
+                        {% else %}
+                            <li><label for="id_fourthQuestion_{{ k.1 }}"><input type="radio" name="fourthQuestion" value="{{ k.0 }}">{{ k.0 }}</label></li>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+                    </ul>
+
+                    {% if list_answer_to_answer.3 == "TrueQuestion"%}
+                        <p id="question4Answer">Good Answer!</p>
+
+                    {% else %}
+                        <p id="question4Answer">Bad Answer !</p>
+
+                    {% endif %}
+
+                    <p id="descriptionQuestion4">{{ list_description_answer.3 }}</p>
+
+                
+
+                </div>
+            </td>
+            </tr>
+            {% endif %}
+
+
+        {% endfor %}
+        <tr>
+        <td>
+        <button id="buttonReturn" onclick="location.href = '{% url 'SignedIn' %}';">Save</button>
+        </td>
+        </tr>
+    </table>
+
+{% endblock content %}

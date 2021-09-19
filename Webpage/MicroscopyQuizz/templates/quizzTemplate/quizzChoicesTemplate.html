@@ -1,0 +1,14 @@
+{% extends 'base/baseForLogined.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="home-title">What Type Of Question Do You Want Answer ?</div>
+<a href="{% url 'QuizzMicroscopy' %}"><img src ="{% static "images/microscopy-optical_pic1.jpg" %}" class=pictureMicroscopyChoice></a>
+<a href="{% url 'QuizzComponent' %}"><img src="{% static "images/halacious-OgvqXGL7XO4-unsplash.jpg"%}" class=pictureCellularComponentChoice></a>
+<div class=textPictureMicroscopyChoice>Microscopy</div>
+<div class=textCellularComponentChoice>Cellular Component</div>
+
+{% endblock content%}
+
+

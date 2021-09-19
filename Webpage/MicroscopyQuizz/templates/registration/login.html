@@ -1,0 +1,43 @@
+{% block content %}
+
+    <form method="POST" class="formularSignIn" action="{% url 'login'%}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+
+    </form>
+
+{% endblock %}
+
+
+
+   <!-- </div> -->
+
+
+
+<!-- https://docs.djangoproject.com/en/dev/topics/forms/#customizing-the-form-template-->
+
+
+
+
+<!--  <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+  </form> 
+  
+
+
+
+$('body input[type=text]').addClass('courier');
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#some_django_form_id').find("input[type='text'], select, textarea").each(function(index, element) {
+            $(element).addClass("form-control");
+        });
+    });
+</script>
+
+
+  -->

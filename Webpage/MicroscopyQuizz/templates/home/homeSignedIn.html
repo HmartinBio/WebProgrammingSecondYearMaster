@@ -1,0 +1,32 @@
+{% extends 'base/baseForLogined.html' %}
+{% load static %}
+
+
+{% block extrahead %}
+
+	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	<script src="{% static 'JS/homeSignedIn.js' %}"></script>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="home-title">Welcome {{request.user.username}}</div>
+	<a href="{% url 'searchImages' %}"><img class="first-picture" src="{% static "images/neuron.jpg"%}"></a>
+	<a href="{% url 'QuizzChoice' %}"><img class="second-picture" src="{% static "images/formulaire.png"%}"></a>
+	<a href="{% url 'classment' %}"><img class="third-picture" src="{% static "images/trophee.jpg"%}"></a>
+	
+	
+	<a href="{% url 'searchImages' %}" ><div class="title-first-picture">Pictures Gallery</div></a>
+	<a href = "{% url 'QuizzChoice' %}"><div class="title-second-picture">Quizz</div></a>
+	<a href="{% url 'classment' %}"><div class="title-third-picture">Classment</div></a>
+
+
+<!-- Login Formular -->
+
+<div class="formul"></div>
+
+<!-- Login Formular-->
+
+{% endblock content %}

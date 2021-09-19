@@ -1,0 +1,153 @@
+{% extends 'base/baseForQuizz.html' %}
+{% load static %}
+
+{% block extrahead %}
+
+    <script src="{% static "JS/jquery/jquery-3.5.1.min.js" %}"></script>
+    <script src="{% static "JS/modifingLogin.js" %}"></script>
+    <script src="{% static "JS/QuizzTemplateComponent.js" %}"></script>
+   
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="home-title">{{ question }}</div>
+
+
+    {% if choiceQuestion == "microscopy" %}
+
+        <form method="POST" action="{% url 'QuizzMicroscopy'%}">
+
+
+        {% csrf_token %}
+
+        {% for i,j in dictionnaryURL.items %}
+
+            {% if i == 0 %}
+
+                <div class = "firstQuestion">
+                
+                    <img src="{{ j.0 }}" id="img_0_{{ i }}">
+                    <img src="{{ j.1 }}" id="img_1_{{ i }}">
+
+                    {{ form.firstQuestion }}
+
+                </div>
+
+            {% endif %}
+
+
+            {% if i == 1 %}
+
+                <div class= "secondQuestion">
+               
+                    <img src="{{ j.0 }}" id="img_0_{{ i }}">
+                    <img src="{{ j.1 }}" id="img_1_{{ i }}">
+               
+                    {{ form.secondQuestion }}
+                </div>
+        
+            {% endif %}
+
+            {% if i == 2 %}
+
+                <div class= "thirdQuestion">
+               
+                    <img src="{{ j.0 }}" id="img_0_{{ i }}">
+                    <img src="{{ j.1 }}" id="img_1_{{ i }}">
+               
+                    {{ form.thirdQuestion }}
+                </div>
+        
+            {% endif %}
+
+            {% if i == 3 %}
+                 <div class= "fourthQuestion">
+               
+                    <img src="{{ j.0 }}" id="img_0_{{ i }}">
+                    <img src="{{ j.1 }}" id="img_1_{{ i }}">
+               
+                    {{ form.fourthQuestion }}
+                </div>
+           
+
+            {% endif %}
+
+
+        {% endfor %}
+
+        
+        <button type="submit">Save</button>
+
+        </form>
+
+    {% else %}
+
+        <form method="POST" action="{% url 'QuizzComponent'%}">
+        {% csrf_token %}
+
+        {% for i,j in dictionnaryURL.items %}
+
+            {% if i == 0 %}
+
+                <div class = "firstQuestion">
+                
+                    <img src="{{ j.0 }}" id="img_0_{{ i }}">
+                    <img src="{{ j.1 }}" id="img_1_{{ i }}">
+
+                    {{ form.firstQuestion }}
+
+                </div>
+
+            {% endif %}
+
+
+            {% if i == 1 %}
+
+                <div class= "secondQuestion">
+               
+                    <img src="{{ j.0 }}" id="img_0_{{ i }}">
+                    <img src="{{ j.1 }}" id="img_1_{{ i }}">
+               
+                    {{ form.secondQuestion }}
+                </div>
+        
+            {% endif %}
+
+            {% if i == 2 %}
+
+                <div class= "thirdQuestion">
+               
+                    <img src="{{ j.0 }}" id="img_0_{{ i }}">
+                    <img src="{{ j.1 }}" id="img_1_{{ i }}">
+               
+                    {{ form.thirdQuestion }}
+                </div>
+        
+            {% endif %}
+
+            {% if i == 3 %}
+                 <div class= "fourthQuestion">
+               
+                    <img src="{{ j.0 }}" id="img_0_{{ i }}">
+                    <img src="{{ j.1 }}" id="img_1_{{ i }}">
+               
+                    {{ form.fourthQuestion }}
+                </div>
+           
+
+            {% endif %}
+
+
+        {% endfor %}
+
+        <button type="submit">Save</button>
+    
+    {% endif %}
+
+
+
+
+
+{% endblock content %}
